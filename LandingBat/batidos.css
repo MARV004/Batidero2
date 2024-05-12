@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lobster+Two:ital@1&display=swap');
 
 *{
     margin: 0;
@@ -6,8 +7,9 @@
     text-decoration: none;
     list-style: none;
     font-family: lato;
-   
+    
 }
+
 
 /* Navigation Bar styles */
 .navBar {
@@ -16,24 +18,26 @@
     width: 100%;
     
     display: flex;
-  /*  justify-content: space-evenly;*/
+    justify-content: space-evenly;
     
 }
 
 .logo {
     color: white;
+    margin: 0px 20px ;
     font-size: 35px;
     line-height: 60px;
-    padding: 0px 25px;
+    padding: 0px 0px;
     font-weight: bold;
+    
 }
 
 .navBar-box {
-   /* display: flex;*/
-   /* flex-direction: row;*/
+    display: flex;
+    flex-direction: row;
     line-height: 60px;
     gap: 50px;
-   /* justify-content: center;*/
+    justify-content: center;
     
 }
 .navigation{
@@ -46,16 +50,23 @@ ul  li a {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
-    padding: 7px 13px;
+   /* padding: 7px 13px;*/
     border-radius: 3px;
 }
 
 /* NavBar animation */ 
 
-active,a:hover {
+.nav > a:hover {
     background-color: #c91919;
     transition: .5s;
 }
+  /*
+.nav {
+    border-color:  red;
+    border-width: 10px;
+    border-style: solid;
+
+}*/
 
 .hamburger {
     position: relative;
@@ -198,16 +209,18 @@ active,a:hover {
 
 /* media query for tablets and mobile */
 
-@media (max-width: 480px) {
+@media (max-width: 344px) {
     .navBar {
         display: flex;
-        justify-content: space-between;        
+        justify-content: space-between;
+        
+        width: 100%;       
         
     }
-    .navigation {
-       /* margin-top: 15px;*/
-       /* display: none;*/
-    }
+   /* .navigation {
+       /* margin-top: 15px;
+       /* display: none;
+    }*/
     .logo {
         font-size: 30px;
         margin-right: 0px;
@@ -309,91 +322,140 @@ active,a:hover {
 
 .menu {
     width: 100%;
-    height: 60rem;
+    height: 50rem;
     background: #e7af00;
-}
-
-.menu-card-container {
-    width: 600px;
-    height: 300px;
-    background-color: white;
-    border-radius: 5px;
-    
-}
-
-.row1 {
     display: flex;
     justify-content: center;
     
 }
 
-.menu-card-container {
-    margin: 20px;
-    margin-top: 100px;
+.menu-container {
+    max-width: 1200px;
+    width: 95%;
+    margin:auto;
+    inset: 0;
+    margin-left: 100px;
+    
+}
+.menu-slider .img-list {
+    display: grid;
+    gap: 20px;
+    font-size: 0;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-template-columns: repeat(10, 1fr);
 }
 
-.menu-card-image {
-    height: 230px;
-    margin-bottom: 15px;
-    background-size: cover;
-    background-image: url(./imgs/pulled_pork_carnitas.jpg);
+.menu-slider .img-list::-webkit-scrollbar {
+    display: none;
 }
 
-/*Pop up image */
+.menu-slider .img-list .image-item {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+}
 
-.pop-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0,0,0,.9);
+
+
+/*Pop up images */
+.menu-container .popup-image {
+    position: inherit;
+    top:0; left: 0;
+    background: rgb(0, 0, 0,.9);
     height: 100%;
     width: 100%;
     z-index: 100;
     display: none;
-
+    
 }
 
-.pop-image span {
+.menu-container .popup-image span{
     position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 40px;
+    right: 10px; 
+    font-size: 60px;
     font-weight: bolder;
-    color:#fff;
+    color: #fff;
     cursor: pointer;
-    z-index: 100;
+    z-index: inherit;
 }
 
-.pop-image  img {
+.menu-container .popup-image img{
     position: absolute;
-    border: 5px solid #fff ;
-    
+    top: 110%; left: 40%;
+    transform: translate(-50% -50%);
+    border: 5px solid #fff;
     border-radius: 5px;
-    width: 750px;
+    width: 500px;
     object-fit: cover;
-    margin:auto;
-    inset: 0;
-    
+}
+
+/*Menu Media query*/
+
+@media (max-width:1023px) {
+
+    .menu-container {
+        max-width: 600px;
+        margin-right: 200px;
+    }
+
+    .menu-slider .slide-button {
+        position: absolute;
+        width: 100%;
+        
+    }
+
+    .menu-slider .img-list {
+        gap:10px;
+        margin-bottom: 15px;
+
+    }
+    .menu-slider .img-list .image-item {
+        width: 400px;
+        height: 500px;
+        object-fit: cover;
+    }
+
+    .menu-container .popup-image img{
+        
+        
+        
+        border: 2px solid #fff;
+        border-radius: 5px;
+        width: 300px;
+        object-fit: cover;
+    }
+}
+
+
+/*slider buttons */
+
+
+.menu-slider .slide-button {
+    position: absolute;
+    height: 50px;
+    top: 140%;
+    width: 50px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #000;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-slider .slide-button:hover {
+    background: #444;
+}
+
+.menu-slider .slide-button#prev-slide {
+    left: 300px;
 
 }
 
-/*Media query for Menu section */
-@media (max-width: 480px){
-    .menu {
-        height: 100%;
-    }
-
-    .row1 {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .menu-card-container {
-        max-width: 90%;
-       
-    }
-    .pop-image  img {
-        width: 90%;
-    }
+.menu-slider .slide-button#next-slide {
+    right: 300px;
 }
-
